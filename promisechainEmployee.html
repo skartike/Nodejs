@@ -1,0 +1,139 @@
+<script>
+    let employees = [
+    {
+        id:1,
+        name:'Sarthak',
+        age: 20,
+        mobileno: '9765402387',
+        post: 'Professor',
+        department:'IT' 
+        
+    },
+    {
+        id:2,
+        name:'Tanishk',
+        age: 21,
+        mobileno: '9760402384',
+        post: 'Lecturer',
+        department:'Finance'
+        
+    },
+    {
+        id:3,
+        name:'Nandu',
+        age: 22,
+        mobileno: '9725404389',
+        post: 'Professor',
+        department:'' 
+        
+    },
+    {
+        id:4,
+        name:'Raju',
+        age: 23,
+        mobileno: '9565402307',
+        post: 'Lecturer',
+        department:'Sales' 
+        
+    },
+    {
+        id:5,
+        name:'Urvashi',
+        age: 20,
+        mobileno: '9705402087',
+        post: 'Professor',
+        department:'' 
+    },
+    {
+        id:6,
+        name:'Karan',
+        age: 21,
+        mobileno: '9715602382',
+        post: 'Lecturer',
+        department:'Marketing'
+    },
+    {
+        id:7,
+        name:'Sharaddha',
+        age: 24,
+        mobileno: '9763402386',
+        post: 'Professor',
+        department:'R&D' 
+    },
+    {
+        id:8,
+        name:'Maliaka',
+        age: 20,
+        mobileno: '9795402587',
+        post: 'Lecturer',
+        department:'HR' 
+    },
+    {
+        id:9,
+        name:'Mia',
+        age: 23,
+        mobileno: '9565407387',
+        post: 'Professor',
+        department:'Sales'  
+    },
+    {
+        id:10,
+        name:'Laxmi',
+        age: 20,
+        mobileno: '9865402887',
+        post: 'Lecturer',
+        department:'' 
+    }
+    ]
+    
+    function getEmployee(id) {
+        let pr = new Promise((resolve, reject)=>{
+            setTimeout(function(){
+                //resolve({id: 1, name:'Ram'})
+                const employee = employees.find(emp => emp.id === id);
+                console.log(employee);
+            },3000)
+        })
+        return pr
+    }
+    let basicsalary = 0;
+        function getBasicSalary(employee){
+            let pr = new Promise((resolve, reject)=>{
+                setTimeout(function(){
+                    if(employee.department == ''){
+                        reject(new Error("Invalid Employee"))
+                    }else if(employee.post == 'Professor'){
+                        
+                        resolve(40000)
+                        
+                    }else if(employee.post == 'Lecturer'){
+                        
+                        resolve(30000)
+                        
+                    }else 
+                    resolve(20000)
+                    
+                   // resolve(['R1', 'R2', 'R3'])
+                },3000)
+            })
+            console.log(pr)
+            return pr
+        }
+          function getGrossSalary(){
+                let pr = new Promise((resolve, reject)=>{
+                    setTimeout(function(){
+                        resolve(['C1', 'C2', 'C3'])
+                    },3000)
+                })
+                return pr
+            }
+           getEmployee(2).then((employee)=>{
+                console.log(employee)
+                return getBasicSalary(emp.id)
+            }).then((repos)=>{
+                console.log(repos)
+                return getGrossSalary(repos[0])
+            }).then((commits)=>{
+                console.log(commits)
+            })  
+</script>

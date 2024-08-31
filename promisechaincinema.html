@@ -1,0 +1,35 @@
+<script>
+    function getMovie(id) {
+        let pr = new Promise((resolve, reject)=>{
+            setTimeout(function(){
+                resolve({id: 1, name:'Kalki'})
+            },3000)
+        })
+        return pr
+    }
+        function getCinema(id){
+            let pr = new Promise((resolve, reject)=>{
+                setTimeout(function(){
+                    resolve(['GaurMall','PVRVVIP','WaveCinema'])
+                },3000)
+            })
+            return pr
+        }
+            function getTicketPrice(repo){
+                let pr = new Promise((resolve, reject)=>{
+                    setTimeout(function(){
+                        resolve({Economy:'Rs200', Buissness:'Rs250', FirstClass:'Rs350'})
+                    },3000)
+                })
+                return pr
+            }
+            getMovie(1).then((user)=>{
+                console.log(user)
+                return getCinema(user.id)
+            }).then((repos)=>{
+                console.log(repos)
+                return getTicketPrice(repos[0])
+            }).then((commits)=>{
+                console.log(commits)
+            })  
+</script>

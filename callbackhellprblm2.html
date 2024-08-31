@@ -1,0 +1,37 @@
+<script>
+    let emp ={id: 1, name: 'Kartik', post: 'Professor'}
+              
+              
+    findEmployee(1,(emp)=>{
+        console.log(emp);
+        findBasicPay(emp.post, (basicpay)=>{
+            console.log("Your Basicpay is",basicpay);
+            CalculateGrossSal(basicpay, (message)=>{
+                console.log(message);
+            });
+        });
+    });
+    function findEmployee(id,callback){
+        setTimeout(function(){
+            callback(emp)
+        },3000)
+    }
+    function findBasicPay(post, callback){
+        setTimeout(function(){
+            if (post == 'Professor'){
+                callback(50000);
+            } else if(post == 'Lecturer'){
+                callback(40000);
+            } else if(post == 'Teacher'){
+                callback(20000);
+            }else{
+                    callback(10000);
+                }
+            
+        },3000)
+    }
+    function CalculateGrossSal(basicpay,callback){
+        let grosssalary = basicpay + (0.5*basicpay) + 4500 - (0.1*basicpay)
+        console.log("Your GrossSalary is",grosssalary);
+    }
+</script>

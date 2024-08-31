@@ -1,0 +1,73 @@
+<script>
+    let students = [
+    {
+        name:'Sarthak',
+        age: 20,
+        marks: 45
+        
+    },
+    {
+        name:'Tanishk',
+        age: 21,
+        marks: 81
+        
+    },
+    {
+        name:'Nandu',
+        age: 22,
+        marks: 35
+        
+    },
+    {
+        name:'Raju',
+        age: 23,
+        marks: 90
+        
+    },
+    {
+        name:'Urvashi',
+        age: 20,
+        marks: 38
+    },
+    {
+        name:'Karan',
+        age: 21,
+        marks: 40 
+    },
+    {
+        name:'Sharaddha',
+        age: 24,
+        marks: 69 
+    },
+    {
+        name:'Maliaka',
+        age: 20,
+        marks: 75 
+    },
+    {
+        name:'Mia',
+        age: 23,
+        marks: 30 
+    },
+    {
+        name:'Laxmi',
+        age: 20,
+        marks: 80 
+    }
+    ]
+    let studentslist = students[0].marks;
+    let avgmarks = 45;
+    let sortedlist =students.sort ((student)=>{
+             if(student.marks > avgmarks){
+             studentslist = student.marks;
+             studentsname = student.name;
+            students.sort()
+            console.log(student)
+           }
+           })
+    function show(student, callback) {
+            callback(studentslist);
+            return sortedlist
+    }
+    console.log("Top 5 Sorted students whose marks are more than avgmarks are printed successfully")
+</script>

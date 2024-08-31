@@ -1,0 +1,31 @@
+<script>
+    let Cart = ['Books', 'Mobiles', 'Cloth'];
+    CreateOrder(Cart[0], (OrderId)=>{
+        console.log(OrderId)
+        ProceedForPayment(OrderId, (TransactionId)=>{
+         console.log(TransactionId)
+         UpdatePaymentOrder(TransactionId, (Message)=>{
+             console.log(Message, 'msg')
+         })
+        })
+     })
+     function CreateOrder(item, callback){
+         setTimeout(function(){
+              //reading data from database
+            callback(12345) 
+              },3000)
+     }
+     function ProceedForPayment(OrderId, callback){
+         setTimeout(function(){
+            callback(123456789)
+             },3000)
+         }
+         function UpdatePaymentOrder(TransactionId, callback){
+             setTimeout(function(){
+              callback("Your Transaction Has Been Completed Successfully:")
+                 },3000)
+
+             }
+            // console.log("Your Transaction Has Been Completed Successfully:")
+ 
+</script>

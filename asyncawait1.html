@@ -1,0 +1,45 @@
+
+<script>
+    getMovie(1, (Movie)=>{
+       console.log(Movie);
+       getCinema(Movie.id, (Cinema)=>{
+        console.log(Cinema)
+        getTicketPrice(Cinema[1], (TicketPrice)=>{
+            console.log(TicketPrice)
+        })
+       })
+    })
+    function getMovie(id, callback){
+        return new Promise((resolve, reject)=>{
+        setTimeout(function(){
+             //reading data from database
+           callback(['Kalki', 'Bahubali', 'Leo']) 
+             },3000)
+            })
+    }
+    function getCinema(id, callback){
+        return new Promise((resolve, reject)=>{
+        setTimeout(function(){
+           callback(['GaurCity', 'PVR', 'VVIP'])
+            },3000)
+        })
+        }
+        function getTicketPrice(id, callback){
+            return new Promise((resolve, reject)=>{
+            setTimeout(function(){
+               callback(['Rs130', 'Rs140', 'Rs340'])
+                },3000)
+            })       
+            }
+            async function showData(){
+                let user = await getMovie(1);
+                console.log(Movie, 'Movie')
+                let getCinema = await getCinema(Movie.id)
+                console.log(getCinema, 'Cinema')
+                let getMovie = await getMovie(Movie.id, getCinema)
+                console.log(getMovie, 'Movie')
+            }
+            showData();
+            console.log("Movies which are passed in the cinemas are printed successsfully with their price:")
+    
+</script>

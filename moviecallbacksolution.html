@@ -1,0 +1,29 @@
+<script>
+    getMovie(1, (Movie)=>{
+       console.log(Movie);
+       getCinema(Movie.id, (Cinema)=>{
+        console.log(Cinema)
+        getTicketPrice(Cinema[1], (TicketPrice)=>{
+            console.log(TicketPrice)
+        })
+       })
+    })
+    function getMovie(id, callback){
+        setTimeout(function(){
+             //reading data from database
+           callback(['Kalki', 'Bahubali', 'Leo']) 
+             },3000)
+    }
+    function getCinema(id, callback){
+        setTimeout(function(){
+           callback(['GaurCity', 'PVR', 'VVIP'])
+            },3000)
+        }
+        function getTicketPrice(id, callback){
+            setTimeout(function(){
+               callback(['Rs130', 'Rs140', 'Rs340'])
+                },3000)
+            }
+            console.log("Movies which are passed in the cinemas are printed successsfully with their price:")
+    
+</script>
